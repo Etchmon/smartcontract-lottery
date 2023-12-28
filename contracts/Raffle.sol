@@ -84,6 +84,7 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatible {
         }
         s_players.push(payable(msg.sender));
         // Emit an event when we update a dynamic array or mapping
+        emit RaffleEnter(msg.sender);
     }
 
     /**
@@ -186,5 +187,9 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatible {
 
     function getRequestConfirmations() public pure returns (uint256) {
         return REQUEST_CONFIRMATIONS;
+    }
+
+    function getInterval() public view returns (uint256) {
+        return i_interval;
     }
 }
