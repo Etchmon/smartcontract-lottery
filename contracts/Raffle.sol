@@ -130,6 +130,8 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatible {
             i_callbackGasLimit,
             NUM_WORDS
         );
+
+        emit RequestRaffleWinnder(requestId);
     }
 
     function fulfillRandomWords(
